@@ -7,17 +7,20 @@ let _client: SupabaseClient | null = null;
 
 export function createClient(): SupabaseClient {
   if (_client) return _client;
-  const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
-  const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+  const url =
+    process.env.NEXT_PUBLIC_SUPABASE_URL ?? process.env.EXPO_PUBLIC_SUPABASE_URL;
+  const key =
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ??
+    process.env.EXPO_PUBLIC_SUPABASE_KEY;
+
+  // Егер Supabase конфигі мүлдем берілмесе, қате лақтырамыз –
+  // бұл жағдайда нақты база да жоқ деген сөз.
   if (!url || !key) {
-    // В проде без env просто создаём "пустой" клиент, чтобы билд өтсін.
-    // Запростар сәтті болмауы мүмкін, бірақ бет құламайды.
-    _client = createSupabaseClient(
-      "https://example.supabase.co",
-      "public-anon-key-placeholder"
+    throw new Error(
+      "Supabase env variables are missing. Please set NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY (or EXPO_PUBLIC_SUPABASE_URL / EXPO_PUBLIC_SUPABASE_KEY)."
     );
-    return _client;
   }
+
   _client = createSupabaseClient(url, key);
   return _client;
 }
