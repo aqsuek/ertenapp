@@ -1,0 +1,20 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  RewriteRule ^index\.html$ / [R=301,L,QSA]
+
+  RewriteRule ^prices/?$ /uslugi/ [R=301,L]
+
+  RewriteRule ^doctor/?$ /doctors/ [R=301,L]
+  RewriteRule ^uslugi/?$ /uslugi/ [R=301,L]
+  RewriteRule ^otzyv/?$ /otzyvy-asiakoz-almaty/ [R=301,L]
+
+  RewriteRule ^forma/?$ / [R=301,L]
+  RewriteRule ^-\/empty/?$ / [R=301,L]
+  RewriteRule ^css/fonts-tildasans/?$ / [R=301,L]
+  RewriteRule ^elzhaszhakypbek/?$ / [R=301,L]
+  RewriteRule ^alikeskin/?$ / [R=301,L]
+
+  RewriteRule ^pterigiyum-almaty/?$ /pterigiym-almaty/ [R=301,L]
+</IfModule>

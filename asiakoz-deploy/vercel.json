@@ -1,0 +1,26 @@
+{
+  "redirects": [
+    { "source": "/index.html", "destination": "/", "permanent": true },
+
+    { "source": "/prices", "destination": "/uslugi/", "permanent": true },
+    { "source": "/prices/", "destination": "/uslugi/", "permanent": true },
+
+    { "source": "/doctor", "destination": "/doctors/", "permanent": true },
+    { "source": "/doctor/", "destination": "/doctors/", "permanent": true },
+    { "source": "/uslugi", "destination": "/uslugi/", "permanent": true },
+    { "source": "/otzyv", "destination": "/otzyvy-asiakoz-almaty/", "permanent": true },
+    { "source": "/otzyv/", "destination": "/otzyvy-asiakoz-almaty/", "permanent": true },
+
+    { "source": "/forma", "destination": "/", "permanent": true },
+    { "source": "/forma/", "destination": "/", "permanent": true },
+    { "source": "/-/empty/", "destination": "/", "permanent": true },
+    { "source": "/css/fonts-tildasans", "destination": "/", "permanent": true },
+    { "source": "/elzhaszhakypbek", "destination": "/", "permanent": true },
+    { "source": "/elzhaszhakypbek/", "destination": "/", "permanent": true },
+    { "source": "/alikeskin", "destination": "/", "permanent": true },
+    { "source": "/alikeskin/", "destination": "/", "permanent": true },
+
+    { "source": "/pterigiyum-almaty", "destination": "/pterigiym-almaty/", "permanent": true },
+    { "source": "/pterigiyum-almaty/", "destination": "/pterigiym-almaty/", "permanent": true }
+  ]
+}
