@@ -193,18 +193,25 @@
   }
 
   function enrichFooter() {
-    var footers = document.querySelectorAll(".site-footer");
-    footers.forEach(function (footer) {
-      if (footer.querySelector(".footer-legal-links")) return;
+    var legalHtml =
+      '<a href="/politika-konfidentsialnosti/">Политика конфиденциальности</a> · ' +
+      '<a href="/polzovatelskoe-soglashenie/">Пользовательское соглашение</a> · ' +
+      '<a href="/glaznaya-klinika-almaty/#rekvizity">Лицензия и реквизиты</a>';
+    document.querySelectorAll(".site-footer").forEach(function (footer) {
       var bottom = footer.querySelector(".footer-bottom");
       if (!bottom) return;
+      var row = footer.querySelector(".footer-legal-links");
+      if (row) {
+        row.innerHTML = legalHtml;
+        return;
+      }
       var legal = document.createElement("p");
       legal.className = "footer-legal-links";
-      legal.innerHTML =
-        '<a href="/politika-konfidentsialnosti/">Политика конфиденциальности</a> · ' +
-        '<a href="/polzovatelskoe-soglashenie/">Пользовательское соглашение</a> · ' +
-        '<a href="/glaznaya-klinika-almaty/#rekvizity">Лицензия и реквизиты</a>';
+      legal.innerHTML = legalHtml;
       bottom.insertBefore(legal, bottom.firstChild);
+    });
+    document.querySelectorAll('.site-footer a[href="/prices/"], .site-footer a[href="/prices"]').forEach(function (a) {
+      if (a && a.parentNode) a.parentNode.removeChild(a);
     });
   }
 
