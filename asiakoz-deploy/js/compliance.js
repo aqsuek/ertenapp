@@ -210,8 +210,23 @@
       legal.innerHTML = legalHtml;
       bottom.insertBefore(legal, bottom.firstChild);
     });
-    document.querySelectorAll('.site-footer a[href="/prices/"], .site-footer a[href="/prices"]').forEach(function (a) {
-      if (a && a.parentNode) a.parentNode.removeChild(a);
+    document.querySelectorAll(".site-footer a[href]").forEach(function (a) {
+      if (!a || !a.parentNode) return;
+      var href = (a.getAttribute("href") || "").toLowerCase();
+      var text = (a.textContent || "").toLowerCase().trim();
+      var isLegacyPriceLink =
+        href === "/prices" ||
+        href === "/prices/" ||
+        href.indexOf("/prices/") === 0 ||
+        href === "/price" ||
+        href === "/price/" ||
+        href.indexOf("/price/") === 0 ||
+        text.indexOf("прейскурант") !== -1 ||
+        text.indexOf("прайс") !== -1 ||
+        text === "цены";
+      if (isLegacyPriceLink) {
+        a.parentNode.removeChild(a);
+      }
     });
   }
 
