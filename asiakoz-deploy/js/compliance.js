@@ -6,65 +6,6 @@
     return;
   }
 
-  function initTikTokPixel() {
-    if (window.ttq && typeof window.ttq.page === "function") return;
-
-    (function (w, d, t) {
-      w.TiktokAnalyticsObject = t;
-      var ttq = (w[t] = w[t] || []);
-      ttq.methods = [
-        "page",
-        "track",
-        "identify",
-        "instances",
-        "debug",
-        "on",
-        "off",
-        "once",
-        "ready",
-        "alias",
-        "group",
-        "enableCookie",
-        "disableCookie",
-        "holdConsent",
-        "revokeConsent",
-        "grantConsent"
-      ];
-      ttq.setAndDefer = function (target, method) {
-        target[method] = function () {
-          target.push([method].concat(Array.prototype.slice.call(arguments, 0)));
-        };
-      };
-      for (var i = 0; i < ttq.methods.length; i++) ttq.setAndDefer(ttq, ttq.methods[i]);
-      ttq.instance = function (id) {
-        for (var inst = ttq._i[id] || [], n = 0; n < ttq.methods.length; n++) ttq.setAndDefer(inst, ttq.methods[n]);
-        return inst;
-      };
-      ttq.load = function (id, opts) {
-        var src = "https://analytics.tiktok.com/i18n/pixel/events.js";
-        var partner = opts && opts.partner;
-        ttq._i = ttq._i || {};
-        ttq._i[id] = [];
-        ttq._i[id]._u = src;
-        ttq._t = ttq._t || {};
-        ttq._t[id] = +new Date();
-        ttq._o = ttq._o || {};
-        ttq._o[id] = opts || {};
-        opts = d.createElement("script");
-        opts.type = "text/javascript";
-        opts.async = true;
-        opts.src = src + "?sdkid=" + id + "&lib=" + t;
-        var firstScript = d.getElementsByTagName("script")[0];
-        firstScript.parentNode.insertBefore(opts, firstScript);
-      };
-
-      ttq.load("D7LJMSBC77U8ETKS0JRG");
-      ttq.page();
-    })(window, document, "ttq");
-  }
-
-  initTikTokPixel();
-
   var consentText =
     'Я даю согласие на обработку моих персональных данных и принимаю условия <a href="/politika-konfidentsialnosti/" target="_blank" rel="noopener">Политики конфиденциальности</a>';
 
