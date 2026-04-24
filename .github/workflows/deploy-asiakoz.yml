@@ -1,0 +1,37 @@
+name: Deploy AsiaKoz site (FTP)
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "asiakoz-deploy/**"
+      - ".github/workflows/deploy-asiakoz.yml"
+  workflow_dispatch:
+
+concurrency:
+  group: asiakoz-ftp-deploy
+  cancel-in-progress: true
+
+jobs:
+  ftp-deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Sync asiakoz-deploy to hosting
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.6
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./asiakoz-deploy/
+          server-dir: ./
+          protocol: ftp
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/node_modules/**
+            **/.github/**
+          log-level: standard
