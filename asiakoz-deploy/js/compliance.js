@@ -221,9 +221,13 @@
         href === "/price" ||
         href === "/price/" ||
         href.indexOf("/price/") === 0 ||
+        href.indexOf("pricelist") !== -1 ||
         text.indexOf("прейскурант") !== -1 ||
         text.indexOf("прайс") !== -1 ||
-        text === "цены";
+        text.indexOf("прайс-лист") !== -1 ||
+        text.indexOf("price list") !== -1 ||
+        text === "цены" ||
+        text === "цена";
       if (isLegacyPriceLink) {
         a.parentNode.removeChild(a);
       }

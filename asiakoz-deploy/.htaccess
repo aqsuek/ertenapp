@@ -4,8 +4,6 @@
 
   RewriteRule ^index\.html$ / [R=301,L,QSA]
 
-  RewriteRule ^prices/?$ /uslugi/ [R=301,L]
-
   RewriteRule ^doctor/?$ /doctors/ [R=301,L]
   RewriteRule ^uslugi/?$ /uslugi/ [R=301,L]
   RewriteRule ^otzyv/?$ /otzyvy-asiakoz-almaty/ [R=301,L]

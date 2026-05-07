@@ -2,9 +2,6 @@
   "redirects": [
     { "source": "/index.html", "destination": "/", "permanent": true },
 
-    { "source": "/prices", "destination": "/uslugi/", "permanent": true },
-    { "source": "/prices/", "destination": "/uslugi/", "permanent": true },
-
     { "source": "/doctor", "destination": "/doctors/", "permanent": true },
     { "source": "/doctor/", "destination": "/doctors/", "permanent": true },
     { "source": "/uslugi", "destination": "/uslugi/", "permanent": true },

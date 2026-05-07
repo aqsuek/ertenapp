@@ -2,10 +2,6 @@
 # Главная без дубля index.html
 /index.html  /  301
 
-# Прейскурант снят — старые ссылки на услуги
-/prices      /uslugi/  301
-/prices/     /uslugi/  301
-
 # Старые URL (Tilda / ручные) → актуальные страницы AsiaKoz
 /doctor      /doctors/  301
 /doctor/     /doctors/  301
