@@ -1,4 +1,4 @@
-name: Deploy AsiaKoz site (FTP)
+name: Deploy AsiaKoz site (FTP) # redeploy trigger
 
 on:
   push:
